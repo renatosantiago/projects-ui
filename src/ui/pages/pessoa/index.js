@@ -2,6 +2,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import { Controller, useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import { requestBackend } from "../../../util/requests";
+import ptBR from 'date-fns/locale/pt-BR';
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 
@@ -94,6 +95,7 @@ const PessoaForm = () => {
                     selected={value}
                     onChange={onChange}
                     className="form-control"
+                    locale={ptBR}
                   />
                   {errors.dataNascimento && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
