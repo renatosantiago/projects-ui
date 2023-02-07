@@ -2,12 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  flex-direction: row;
 }
 
-.mr-1 {
-  margin-right: 50px;
-}
-
-.btn-mr-1 {
-  margin-right: 10px;
-}
+/* .mr-1 {
+  margin-right: 100px;
+} */

@@ -29,7 +29,7 @@ const ProjetoCard = ({ projeto, onDelete }) => {
 
 
     <div className="col-3 mr-1">
-      <div className={`card mt-3`}>
+      <div className="card mt-3 me-3">
         <div className="card-body">
           <h5 className="card-title">{projeto.nome}</h5>
           <div className="projeto-card-container">
