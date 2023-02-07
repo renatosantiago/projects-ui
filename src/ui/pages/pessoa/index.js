@@ -72,7 +72,7 @@ const PessoaForm = () => {
               control={control}
               name="cpf"
               rules={{ required: true }}
-              render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="Nome"/>}
+              render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="CPF"/>}
             />
             {formState.errors.cpf && (
               <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -96,6 +96,7 @@ const PessoaForm = () => {
                     onChange={onChange}
                     className="form-control"
                     locale={ptBR}
+                    placeholderText="Data Nascimento"
                   />
                   {errors.dataNascimento && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>

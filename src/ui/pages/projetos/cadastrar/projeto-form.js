@@ -79,7 +79,7 @@ const ProjetoForm = ({ projeto = {} }) => {
               type="text"
               className={`form-control base-input ${errors.name ? 'is-invalid' : ''
                 }`}
-              placeholder="Nome do produto"
+              placeholder="Nome do projeto"
               name="nome"
               data-testid="nome"
             />
@@ -130,6 +130,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     className="form-control"
                     id="dataInicio"
                     locale={ptBR}
+                    placeholderText="Data início"
                   />
                   {errors.dataInicio && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -156,6 +157,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     className="form-control"
                     id="dataPrevisaoFim"
                     locale={ptBR}
+                    placeholderText="Previsão fim"
                   />
                   {errors.dataPrevisaoFim && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -181,6 +183,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     className="form-control"
                     id="dataFim"
                     locale={ptBR}
+                    placeholderText="Data fim"
                   />
                   {errors.dataFim && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
