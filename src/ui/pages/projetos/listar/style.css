@@ -1,0 +1,13 @@
+.projeto-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mr-1 {
+  margin-right: 50px;
+}
+
+.btn-mr-1 {
+  margin-right: 10px;
+}
