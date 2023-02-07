@@ -10,6 +10,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { optionsRisco, optionsStatus } from "../../../../util/select-options";
 import "react-datepicker/dist/react-datepicker.css"
 import { toast } from "react-toastify";
+import CurrencyInput from "react-currency-input-field";
 
 const ProjetoForm = ({ projeto = {} }) => {
   const history = useHistory();
@@ -31,10 +32,12 @@ const ProjetoForm = ({ projeto = {} }) => {
   const handleCancelar = () => { history.push('/projeto/listar'); }
 
   const onSubmit = (formData) => {
+    console.log(formData)
     const data = {
       ...formData,
       statusProjeto: formData.statusProjeto.value,
       riscoProjeto: formData.riscoProjeto.value,
+      orcamento: String(formData.orcamento).replace(',', '.'),
     };
 
 
@@ -69,15 +72,20 @@ const ProjetoForm = ({ projeto = {} }) => {
         <div className="row mt-3">
           <div className="col-6 mt-3">
             <label htmlFor="nome">Nome do Projeto</label>
-            <Controller
-              control={control}
+            <input
+              {...register('nome', {
+                required: 'Campo obrigatório',
+              })}
+              type="text"
+              className={`form-control base-input ${errors.name ? 'is-invalid' : ''
+                }`}
+              placeholder="Nome do produto"
               name="nome"
-              rules={{ required: true }}
-              render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome" />}
+              data-testid="nome"
             />
-            {errors.nome && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
+            <div className="invalid-feedback d-block">
+              {errors.name?.message}
+            </div>
           </div>
           <div className="col-6 mt-3">
             <label htmlFor="gerente" data-testid="gerente">Gerente</label>
@@ -229,6 +237,31 @@ const ProjetoForm = ({ projeto = {} }) => {
 
         <div className="row">
           <div className="col-6 mt-3">
+            <label htmlFor="orcamento">Orçamento</label>
+            <Controller
+              name="orcamento"
+              rules={{ required: 'Campo obrigatório' }}
+              control={control}
+              render={({ field }) => (
+                <CurrencyInput
+                  placeholder="Orçamento"
+                  className="form-control"
+                  value={field.value}
+                  onValueChange={field.onChange}
+                  data-testid="orcamento"
+                  decimalScale={2}
+                  intlConfig={{ locale: 'pt-BR', currency: 'BRL' }}
+                />
+              )}
+            />
+            {errors.orcamento && (
+              <div className="invalid-feedback d-block">Campo obrigatório</div>
+            )}
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-6 mt-3">
             <label htmlFor="descricao">Descrição</label>
             <textarea
               rows={5}
@@ -244,6 +277,9 @@ const ProjetoForm = ({ projeto = {} }) => {
             )}
           </div>
         </div>
+
+
+
         <button type="submit" className="btn btn-primary mt-3">
           Salvar
         </button>

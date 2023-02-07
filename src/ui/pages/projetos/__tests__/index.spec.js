@@ -30,6 +30,7 @@ describe('ProjetoForm test', () => {
     const dataPrevFimInput = screen.getByTestId("dataPrevisaoFim");
     const statusInput = screen.getByLabelText("Status");
     const riscoInput = screen.getByLabelText("Risco");
+    const orcamento = screen.getByTestId("orcamento");
     const descricaoInput = screen.getByTestId("descricao");
 
     const submitButton = screen.getByRole('button', { name: /salvar/i });
@@ -41,6 +42,7 @@ describe('ProjetoForm test', () => {
     userEvent.type(nomeInput, 'Projeto 1');
     userEvent.type(dataInicioInput, '05/02/2023');
     userEvent.type(dataPrevFimInput, '05/02/2023');
+    userEvent.type(orcamento, '200.000,00');
     userEvent.type(descricaoInput, 'descricao');
 
     userEvent.click(submitButton);

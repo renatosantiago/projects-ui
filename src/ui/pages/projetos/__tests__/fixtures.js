@@ -21,6 +21,7 @@ const projetos = [
       "nome": "José da Silva"
     },
     "statusProjeto": "Em Análise",
+    "orcamento": 2000000.00,
     "riscoProjeto": "Baixo"
   },
   {
@@ -34,6 +35,7 @@ const projetos = [
       "id": 1,
       "nome": "José da Silva"
     },
+    "orcamento": 2000000.00,
     "statusProjeto": "Encerrado",
     "riscoProjeto": "Médio"
   },
@@ -50,6 +52,7 @@ export const projeto = {
     "id": 1,
     "nome": "José da Silva"
   },
+  "orcamento": "2000.000,00",
   "statusProjeto": "Em Análise",
   "riscoProjeto": "Baixo"
 }

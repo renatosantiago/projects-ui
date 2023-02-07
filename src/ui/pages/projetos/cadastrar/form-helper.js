@@ -21,7 +21,8 @@ const getDefaultValues = ({
   dataPrevisaoFim = null,
   dataFim = null,
   gerente = {},
-  descricao = ''
+  descricao = '',
+  orcamento = 0
 }) => ({
   id,
   nome,
@@ -31,7 +32,8 @@ const getDefaultValues = ({
   dataPrevisaoFim: dataPrevisaoFim ? new Date(dataPrevisaoFim) : null,
   dataFim: dataFim ? new Date(dataFim) : null,
   gerente,
-  descricao
+  descricao,
+  orcamento
 })
 
 export { getDefaultValues, getSchema };
