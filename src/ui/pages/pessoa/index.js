@@ -59,16 +59,11 @@ const PessoaForm = () => {
           </div>
           <div className="col-4">
             <label htmlFor="cpf">CPF</label>
-            <input
-              {...register('cpf', {
-                required: 'Campo obrigatório',
-              })}
-              type="text"
-              className="form-control"
+            <Controller
+              control={control}
               name="cpf"
-              aria-describedby="emailHelp"
-              placeholder="CPF"
-              maxLength={14}
+              rules={{ required: true }}
+              render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="Nome"/>}
             />
             {formState.errors.cpf && (
               <div className="invalid-feedback d-block">Campo obrigatório</div>

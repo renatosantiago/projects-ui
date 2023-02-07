@@ -28,6 +28,8 @@ const ProjetoForm = ({ projeto = {} }) => {
     });
   }, []);
 
+  const handleCancelar = () => { history.push('/projeto/listar'); }
+
   const onSubmit = (formData) => {
     const data = {
       ...formData,
@@ -59,15 +61,11 @@ const ProjetoForm = ({ projeto = {} }) => {
         <div className="row mt-3">
           <div className="col-6 mt-3">
             <label htmlFor="nome">Nome do Projeto</label>
-            <input
-              {...register('nome', {
-                required: 'Campo obrigatório',
-              })}
-              type="text"
-              className="form-control"
-              aria-describedby="nomelHelp"
-              placeholder="Nome"
-              data-testid="nome"
+            <Controller
+              control={control}
+              name="nome"
+              rules={{ required: true }}
+              render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome"/>}
             />
             {errors.nome && (
               <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -238,6 +236,10 @@ const ProjetoForm = ({ projeto = {} }) => {
         <button type="submit" className="btn btn-primary mt-3">
           Salvar
         </button>
+        {
+          isEditing && <button className="btn btn-primary mt-3 ms-1" onClick={() => handleCancelar()}>Cancelar</button>
+        }
+        
       </form>
     </div>
   );
