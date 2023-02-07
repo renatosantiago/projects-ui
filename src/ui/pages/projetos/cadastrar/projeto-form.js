@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { requestBackend } from "../../../../util/requests";
 import Select from 'react-select';
 import DatePicker from "react-datepicker";
-
+import ptBR from 'date-fns/locale/pt-BR';
 import { getSchema } from "./form-helper";
 import { useHistory, useParams } from "react-router-dom";
 import { optionsRisco, optionsStatus } from "../../../../util/select-options";
@@ -113,6 +113,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     onChange={onChange}
                     className="form-control"
                     id="dataInicio"
+                    locale={ptBR}
                   />
                   {errors.dataInicio && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -138,6 +139,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     onChange={onChange}
                     className="form-control"
                     id="dataPrevisaoFim"
+                    locale={ptBR}
                   />
                   {errors.dataPrevisaoFim && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -162,6 +164,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                     onChange={onChange}
                     className="form-control"
                     id="dataFim"
+                    locale={ptBR}
                   />
                   {errors.dataFim && (
                     <div className="invalid-feedback d-block">Campo obrigatório</div>
