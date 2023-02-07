@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import { requestBackend } from "../../../../util/requests";
+import { requestBackend } from "../../../../../util/requests";
 
 const IntegrantesProjetosList = () => {
 
@@ -47,6 +47,15 @@ const IntegrantesProjetosList = () => {
 
   return (
     <div className="container">
+      <div className="mt-3 ms-2">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">Projetos</li>
+            <li className="breadcrumb-item active" aria-current="page">Cadastrar</li>
+            <li className="breadcrumb-item active" aria-current="page">Integrante</li>
+          </ol>
+        </nav>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row">
           <div className="col-5 mt-3">

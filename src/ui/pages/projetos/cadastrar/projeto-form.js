@@ -46,7 +46,7 @@ const ProjetoForm = ({ projeto = {} }) => {
 
     requestBackend(config)
       .then(() => {
-        toast.success('Salvo com sucesso', {theme: "colored"});
+        toast.success('Salvo com sucesso', { theme: "colored" });
         history.push('/projeto/listar');
       })
       .catch(() => {
@@ -56,6 +56,14 @@ const ProjetoForm = ({ projeto = {} }) => {
 
   return (
     <div className="container">
+      <div className="mt-3 ms-2">
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">Projetos</li>
+            <li className="breadcrumb-item active" aria-current="page">{isEditing ? 'Editar' : 'Cadastrar'}</li>
+          </ol>
+        </nav>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} data-testid="projeto-form">
 
         <div className="row mt-3">
@@ -65,7 +73,7 @@ const ProjetoForm = ({ projeto = {} }) => {
               control={control}
               name="nome"
               rules={{ required: true }}
-              render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome"/>}
+              render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome" />}
             />
             {errors.nome && (
               <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -242,7 +250,7 @@ const ProjetoForm = ({ projeto = {} }) => {
         {
           isEditing && <button className="btn btn-primary mt-3 ms-1" onClick={() => handleCancelar()}>Cancelar</button>
         }
-        
+
       </form>
     </div>
   );
