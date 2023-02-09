@@ -7,7 +7,6 @@ const optionsStatus = [
   { value: 'Análise Aprovada', label: 'Análise Aprovada' },
   { value: 'Em Análise', label: 'Em Análise' },
   { value: 'Em Andamento', label: 'Em Andamento' },
-  { value: 'vanilla', label: 'Vanilla' }
 ];
 
 const optionsRisco = [
