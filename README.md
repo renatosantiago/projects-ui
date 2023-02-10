@@ -1,7 +1,7 @@
 # CRUD - App para gerenciamento de projetos
 
 ### Tela cadastro de pessoas
-![Captura de Tela 2023-02-10 às 15 55 31](https://user-images.githubusercontent.com/3075542/218185443-aa45c503-4e29-42f0-92e5-065c1d70902a.png)
+![Captura de Tela 2023-02-10 às 17 04 59](https://user-images.githubusercontent.com/3075542/218187327-46da542f-27dd-43e4-bb8d-01c7c578d140.png)
 
 ***
 
