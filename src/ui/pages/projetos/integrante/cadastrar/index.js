@@ -38,10 +38,10 @@ const IntegrantesProjetosList = () => {
 
     requestBackend(config)
       .then(() => {
-        toast.success('Integrante cadastrado com sucesso', {theme: "colored"});
+        toast.success('Integrante cadastrado com sucesso', { theme: "colored" });
       })
       .catch(() => {
-        toast.error('Erro ao cadastrar Integrante', {theme: "colored"})
+        toast.error('Erro ao cadastrar Integrante', { theme: "colored" })
       });
   };
 
@@ -56,49 +56,51 @@ const IntegrantesProjetosList = () => {
           </ol>
         </nav>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row">
-          <div className="col-5 mt-3">
-            <label htmlFor="projeto">Projeto</label>
-            <Controller
-              name="projeto"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={projetos}
-                  getOptionLabel={(projeto) => projeto.nome}
-                  getOptionValue={(projeto) => String(projeto.id)}
-                  inputId="projeto"
-                />
-              )}
-            />
+      <div className="base-card">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="row">
+            <div className="col-5 mt-3">
+              <label htmlFor="projeto">Projeto</label>
+              <Controller
+                name="projeto"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={projetos}
+                    getOptionLabel={(projeto) => projeto.nome}
+                    getOptionValue={(projeto) => String(projeto.id)}
+                    inputId="projeto"
+                  />
+                )}
+              />
+            </div>
+            <div className="col-5 mt-3">
+              <label htmlFor="pessoa">Integrante</label>
+              <Controller
+                name="pessoa"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={pessoas}
+                    getOptionLabel={(pessoa) => pessoa.nome}
+                    getOptionValue={(pessoa) => String(pessoa.id)}
+                    inputId="pessoa"
+                  />
+                )}
+              />
+            </div>
+            <div className="col-2 mt-4">
+              <button type="submit" className="btn btn-primary mt-3">
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="col-5 mt-3">
-            <label htmlFor="pessoa">Integrante</label>
-            <Controller
-              name="pessoa"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={pessoas}
-                  getOptionLabel={(pessoa) => pessoa.nome}
-                  getOptionValue={(pessoa) => String(pessoa.id)}
-                  inputId="pessoa"
-                />
-              )}
-            />
-          </div>
-          <div className="col-2 mt-4">
-            <button type="submit" className="btn btn-primary mt-3">
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
   );

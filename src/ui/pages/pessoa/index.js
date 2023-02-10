@@ -52,73 +52,75 @@ const PessoaForm = () => {
           </ol>
         </nav>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="row mt-3">
-          <div className="col-6">
-            <label htmlFor="nome">Nome</label>
-            <Controller
-              control={control}
-              name="nome"
-              rules={{ required: true }}
-              render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome"/>}
-            />
-            {formState.errors.nome && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-          <div className="col-4">
-            <label htmlFor="cpf">CPF</label>
-            <Controller
-              control={control}
-              name="cpf"
-              rules={{ required: true }}
-              render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="CPF"/>}
-            />
-            {formState.errors.cpf && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-          <div className="col-2">
-            <label htmlFor="dataNascimento">Data Nascimento</label>
-            <Controller
-              control={control}
-              name="dataNascimento"
-              rules={{ required: true }}
-              render={({
-                field: { onChange, value },
-                formState: { errors },
-              }) => (
-                <>
-                  <DatePicker
-                    dateFormat="dd/MM/yyyy"
-                    showIcon
-                    selected={value}
-                    onChange={onChange}
-                    className="form-control"
-                    locale={ptBR}
-                    placeholderText="Data Nascimento"
-                  />
-                  {errors.dataNascimento && (
-                    <div className="invalid-feedback d-block">Campo obrigatório</div>
-                  )}
-                </>
+      <div className="base-card">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="row mt-3">
+            <div className="col-6">
+              <label htmlFor="nome">Nome</label>
+              <Controller
+                control={control}
+                name="nome"
+                rules={{ required: true }}
+                render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome" />}
+              />
+              {formState.errors.nome && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
               )}
-            />
-            {formState.errors.dataNascimento && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
+            </div>
+            <div className="col-4">
+              <label htmlFor="cpf">CPF</label>
+              <Controller
+                control={control}
+                name="cpf"
+                rules={{ required: true }}
+                render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="CPF" />}
+              />
+              {formState.errors.cpf && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
+              )}
+            </div>
+            <div className="col-2">
+              <label htmlFor="dataNascimento">Data Nascimento</label>
+              <Controller
+                control={control}
+                name="dataNascimento"
+                rules={{ required: true }}
+                render={({
+                  field: { onChange, value },
+                  formState: { errors },
+                }) => (
+                  <>
+                    <DatePicker
+                      dateFormat="dd/MM/yyyy"
+                      showIcon
+                      selected={value}
+                      onChange={onChange}
+                      className="form-control"
+                      locale={ptBR}
+                      placeholderText="Data Nascimento"
+                    />
+                    {errors.dataNascimento && (
+                      <div className="invalid-feedback d-block">Campo obrigatório</div>
+                    )}
+                  </>
+                )}
+              />
+              {formState.errors.dataNascimento && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="mt-3">
-          <div className="form-check">
-            <input {...register('funcionario')} className="form-check-input" type="checkbox" id="gridCheck" />
-            <label className="form-check-label" htmlFor="gridCheck">
-              Funcionário
-            </label>
+          <div className="mt-3">
+            <div className="form-check">
+              <input {...register('funcionario')} className="form-check-input" type="checkbox" id="gridCheck" />
+              <label className="form-check-label" htmlFor="gridCheck">
+                Funcionário
+              </label>
+            </div>
           </div>
-        </div>
-        <button type="submit" className="btn btn-primary mt-3">Salvar</button>
-      </form>
+          <button type="submit" className="btn btn-primary mt-3">Salvar</button>
+        </form>
+      </div>
     </div>
   );
 }

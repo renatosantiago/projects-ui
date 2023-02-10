@@ -32,7 +32,7 @@ const ProjetoList = () => {
           </ol>
         </nav>
       </div>
-      <div className="card-columns projeto-card-container">
+      <div className="card-columns projeto-card-container base-card">
         {
           projetos.map((projeto) => <ProjetoCard projeto={projeto} onDelete={getProjetos} key={projeto.id}/>)
         }

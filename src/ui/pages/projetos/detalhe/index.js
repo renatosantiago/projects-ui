@@ -33,8 +33,8 @@ const ProjetoCard = ({ projeto, onDelete }) => {
         <div className="card-body">
           <h5 className="card-title">{projeto.nome}</h5>
           <div className="projeto-card-container">
-              <h6 className="card-subtitle mb-2 text-muted">{projeto.statusProjeto}</h6>
-              <span className="badge rounded-pill text-bg-secondary card-subtitle mb-2 ms-1">{projeto.riscoProjeto}</span>
+            <h6 className="card-subtitle mb-2 text-muted">{projeto.statusProjeto}</h6>
+            <span className="badge rounded-pill text-bg-secondary card-subtitle mb-2 ms-1">{projeto.riscoProjeto}</span>
           </div>
           <p className="card-text">{projeto.descricao}</p>
           <button onClick={() => handleDelete(projeto.id)} className="btn btn-outline-danger me-1">

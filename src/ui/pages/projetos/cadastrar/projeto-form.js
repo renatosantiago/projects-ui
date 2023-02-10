@@ -67,230 +67,231 @@ const ProjetoForm = ({ projeto = {} }) => {
           </ol>
         </nav>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} data-testid="projeto-form">
+      <div className="base-card">
 
-        <div className="row mt-3">
-          <div className="col-6 mt-3">
-            <label htmlFor="nome">Nome do Projeto</label>
-            <input
-              {...register('nome', {
-                required: 'Campo obrigatório',
-              })}
-              type="text"
-              className={`form-control base-input ${errors.name ? 'is-invalid' : ''
-                }`}
-              placeholder="Nome do projeto"
-              name="nome"
-              data-testid="nome"
-            />
-            <div className="invalid-feedback d-block">
-              {errors.name?.message}
+        <form onSubmit={handleSubmit(onSubmit)} data-testid="projeto-form">
+
+          <div className="row mt-3">
+            <div className="col-6 mt-3">
+              <label htmlFor="nome">Nome do Projeto</label>
+              <input
+                {...register('nome', {
+                  required: 'Campo obrigatório',
+                })}
+                type="text"
+                className={`form-control base-input ${errors.name ? 'is-invalid' : ''
+                  }`}
+                placeholder="Nome do projeto"
+                name="nome"
+                data-testid="nome"
+              />
+              <div className="invalid-feedback d-block">
+                {errors.name?.message}
+              </div>
+            </div>
+            <div className="col-6 mt-3">
+              <label htmlFor="gerente" data-testid="gerente">Gerente</label>
+              <Controller
+                name="gerente"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={selectGerente}
+                    classNamePrefix="gerente-projeto"
+                    getOptionLabel={(pessoa) => pessoa.nome}
+                    getOptionValue={(pessoa) => String(pessoa.id)}
+                    inputId="gerente"
+                  />
+                )}
+              />
+              {errors.gerente && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
+              )}
             </div>
           </div>
-          <div className="col-6 mt-3">
-            <label htmlFor="gerente" data-testid="gerente">Gerente</label>
-            <Controller
-              name="gerente"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={selectGerente}
-                  classNamePrefix="gerente-projeto"
-                  getOptionLabel={(pessoa) => pessoa.nome}
-                  getOptionValue={(pessoa) => String(pessoa.id)}
-                  inputId="gerente"
-                />
-              )}
-            />
-            {errors.gerente && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-        </div>
 
-        <div className="row">
-          <div className="col-4 mt-3">
-            <label htmlFor="dataInicio" data-testid="dataInicio">Data Início</label>
-            <Controller
-              control={control}
-              name="dataInicio"
-              rules={{ required: true }}
-              render={({
-                field: { onChange, value },
-                formState: { errors },
-              }) => (
-                <>
-                  <DatePicker
-                    showIcon
-                    dateFormat="dd/MM/yyyy"
-                    selected={value}
-                    onChange={onChange}
-                    className="form-control"
-                    id="dataInicio"
-                    locale={ptBR}
-                    placeholderText="Data início"
+          <div className="row">
+            <div className="col-4 mt-3">
+              <label htmlFor="dataInicio" data-testid="dataInicio">Data Início</label>
+              <Controller
+                control={control}
+                name="dataInicio"
+                rules={{ required: true }}
+                render={({
+                  field: { onChange, value },
+                  formState: { errors },
+                }) => (
+                  <>
+                    <DatePicker
+                      showIcon
+                      dateFormat="dd/MM/yyyy"
+                      selected={value}
+                      onChange={onChange}
+                      className="form-control"
+                      id="dataInicio"
+                      locale={ptBR}
+                      placeholderText="Data início"
+                    />
+                    {errors.dataInicio && (
+                      <div className="invalid-feedback d-block">Campo obrigatório</div>
+                    )}
+                  </>
+                )}
+              />
+            </div>
+            <div className="col-4 mt-3">
+              <label htmlFor="dataPrevisaoFim" data-testid="dataPrevisaoFim">Data Previsão Fim</label>
+              <Controller
+                control={control}
+                name="dataPrevisaoFim"
+                rules={{ required: true }}
+                render={({
+                  field: { onChange, value },
+                  formState: { errors },
+                }) => (
+                  <>
+                    <DatePicker
+                      dateFormat="dd/MM/yyyy"
+                      selected={value}
+                      onChange={onChange}
+                      className="form-control"
+                      id="dataPrevisaoFim"
+                      locale={ptBR}
+                      placeholderText="Previsão fim"
+                    />
+                    {errors.dataPrevisaoFim && (
+                      <div className="invalid-feedback d-block">Campo obrigatório</div>
+                    )}
+                  </>
+                )}
+              />
+            </div>
+            <div className="col-4 mt-3">
+              <label htmlFor="dataFim">Data Fim</label>
+              <Controller
+                control={control}
+                name="dataFim"
+                render={({
+                  field: { onChange, value },
+                  formState: { errors },
+                }) => (
+                  <>
+                    <DatePicker
+                      dateFormat="dd/MM/yyyy"
+                      selected={value}
+                      onChange={onChange}
+                      className="form-control"
+                      id="dataFim"
+                      locale={ptBR}
+                      placeholderText="Data fim"
+                    />
+                    {errors.dataFim && (
+                      <div className="invalid-feedback d-block">Campo obrigatório</div>
+                    )}
+                  </>
+                )}
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-3 mt-3">
+              <label htmlFor="statusProjeto">Status</label>
+              <Controller
+                name="statusProjeto"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={optionsStatus}
+                    getOptionLabel={(status) => status.label}
+                    getOptionValue={(status) => status.value}
+                    inputId="statusProjeto"
                   />
-                  {errors.dataInicio && (
-                    <div className="invalid-feedback d-block">Campo obrigatório</div>
-                  )}
-                </>
+                )}
+              />
+              {errors.statusProjeto && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
               )}
-            />
-          </div>
-          <div className="col-4 mt-3">
-            <label htmlFor="dataPrevisaoFim" data-testid="dataPrevisaoFim">Data Previsão Fim</label>
-            <Controller
-              control={control}
-              name="dataPrevisaoFim"
-              rules={{ required: true }}
-              render={({
-                field: { onChange, value },
-                formState: { errors },
-              }) => (
-                <>
-                  <DatePicker
-                    dateFormat="dd/MM/yyyy"
-                    selected={value}
-                    onChange={onChange}
-                    className="form-control"
-                    id="dataPrevisaoFim"
-                    locale={ptBR}
-                    placeholderText="Previsão fim"
+            </div>
+
+            <div className="col-3 mt-3">
+              <label htmlFor="riscoProjeto">Risco</label>
+              <Controller
+                name="riscoProjeto"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    options={optionsRisco}
+                    getOptionLabel={(status) => status.label}
+                    getOptionValue={(status) => status.value}
+                    inputId="riscoProjeto"
                   />
-                  {errors.dataPrevisaoFim && (
-                    <div className="invalid-feedback d-block">Campo obrigatório</div>
-                  )}
-                </>
+                )}
+              />
+              {errors.riscoProjeto && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
               )}
-            />
+            </div>
           </div>
-          <div className="col-4 mt-3">
-            <label htmlFor="dataFim">Data Fim</label>
-            <Controller
-              control={control}
-              name="dataFim"
-              render={({
-                field: { onChange, value },
-                formState: { errors },
-              }) => (
-                <>
-                  <DatePicker
-                    dateFormat="dd/MM/yyyy"
-                    selected={value}
-                    onChange={onChange}
+
+          <div className="row">
+            <div className="col-6 mt-3">
+              <label htmlFor="orcamento">Orçamento</label>
+              <Controller
+                name="orcamento"
+                rules={{ required: 'Campo obrigatório' }}
+                control={control}
+                render={({ field }) => (
+                  <CurrencyInput
+                    placeholder="Orçamento"
                     className="form-control"
-                    id="dataFim"
-                    locale={ptBR}
-                    placeholderText="Data fim"
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    data-testid="orcamento"
+                    decimalScale={2}
+                    intlConfig={{ locale: 'pt-BR', currency: 'BRL' }}
                   />
-                  {errors.dataFim && (
-                    <div className="invalid-feedback d-block">Campo obrigatório</div>
-                  )}
-                </>
+                )}
+              />
+              {errors.orcamento && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
               )}
-            />
+            </div>
           </div>
-        </div>
 
-        <div className="row">
-          <div className="col-3 mt-3">
-            <label htmlFor="statusProjeto">Status</label>
-            <Controller
-              name="statusProjeto"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={optionsStatus}
-                  getOptionLabel={(status) => status.label}
-                  getOptionValue={(status) => status.value}
-                  inputId="statusProjeto"
-                />
+          <div className="row">
+            <div className="col-6 mt-3">
+              <label htmlFor="descricao">Descrição</label>
+              <textarea
+                rows={5}
+                {...register('descricao', {
+                  required: 'Campo obrigatório',
+                })}
+                className={`form-control base-input h-auto ${errors.descricao ? 'is-invalid' : ''}`}
+                placeholder="Descrição"
+                data-testid="descricao"
+              />
+              {errors.descricao && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
               )}
-            />
-            {errors.statusProjeto && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
+            </div>
           </div>
 
-          <div className="col-3 mt-3">
-            <label htmlFor="riscoProjeto">Risco</label>
-            <Controller
-              name="riscoProjeto"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  options={optionsRisco}
-                  getOptionLabel={(status) => status.label}
-                  getOptionValue={(status) => status.value}
-                  inputId="riscoProjeto"
-                />
-              )}
-            />
-            {errors.riscoProjeto && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-        </div>
+          <button type="submit" className="btn btn-primary mt-3">
+            Salvar
+          </button>
+          {
+            isEditing && <button className="btn btn-primary mt-3 ms-1" onClick={() => handleCancelar()}>Cancelar</button>
+          }
 
-        <div className="row">
-          <div className="col-6 mt-3">
-            <label htmlFor="orcamento">Orçamento</label>
-            <Controller
-              name="orcamento"
-              rules={{ required: 'Campo obrigatório' }}
-              control={control}
-              render={({ field }) => (
-                <CurrencyInput
-                  placeholder="Orçamento"
-                  className="form-control"
-                  value={field.value}
-                  onValueChange={field.onChange}
-                  data-testid="orcamento"
-                  decimalScale={2}
-                  intlConfig={{ locale: 'pt-BR', currency: 'BRL' }}
-                />
-              )}
-            />
-            {errors.orcamento && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-6 mt-3">
-            <label htmlFor="descricao">Descrição</label>
-            <textarea
-              rows={5}
-              {...register('descricao', {
-                required: 'Campo obrigatório',
-              })}
-              className={`form-control base-input h-auto ${errors.descricao ? 'is-invalid' : ''}`}
-              placeholder="Descrição"
-              data-testid="descricao"
-            />
-            {errors.descricao && (
-              <div className="invalid-feedback d-block">Campo obrigatório</div>
-            )}
-          </div>
-        </div>
-
-
-
-        <button type="submit" className="btn btn-primary mt-3">
-          Salvar
-        </button>
-        {
-          isEditing && <button className="btn btn-primary mt-3 ms-1" onClick={() => handleCancelar()}>Cancelar</button>
-        }
-
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
