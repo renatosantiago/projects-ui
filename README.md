@@ -1,24 +1,25 @@
 # CRUD - App para gerenciamento de projetos
 
 ### Tela cadastro de pessoas
-![Captura de Tela 2023-02-07 às 16 19 56](https://user-images.githubusercontent.com/3075542/217366837-f6c5d907-0706-44b4-adaa-75a70d310ffb.png)
-
+![Captura de Tela 2023-02-10 às 15 55 31](https://user-images.githubusercontent.com/3075542/218185443-aa45c503-4e29-42f0-92e5-065c1d70902a.png)
 
 ***
+
 ### Tela cadastro de projetos
-![Captura de Tela 2023-02-07 às 18 05 46](https://user-images.githubusercontent.com/3075542/217367515-eef111e4-6853-4eab-8ac6-aa607928fe98.png)
+![Captura de Tela 2023-02-10 às 15 53 45](https://user-images.githubusercontent.com/3075542/218185514-f527e982-3118-4ea1-a1fe-515445e3cbb1.png)
 
 ***
 
 ### Tela listagem dos projetos
-![Captura de Tela 2023-02-07 às 16 26 58](https://user-images.githubusercontent.com/3075542/217367771-f6dccd04-2737-47ee-b3f8-ad99bc3cf1a2.png)
+![Captura de Tela 2023-02-10 às 15 54 35](https://user-images.githubusercontent.com/3075542/218185570-f0a96835-6b35-438a-b588-153834db0b70.png)
 
 ***
 
 ### Tela edição do projeto
-![Captura de Tela 2023-02-07 às 18 04 49](https://user-images.githubusercontent.com/3075542/217368053-3c9fba8c-1b1f-4443-8165-57ba7018df49.png)
+![Captura de Tela 2023-02-10 às 15 56 12](https://user-images.githubusercontent.com/3075542/218185665-47223731-65ec-47ac-ad38-c7f345901f89.png)
 
 ***
 
 ### Tela cadastro de integrantes do projeto
-![Captura de Tela 2023-02-07 às 16 28 26](https://user-images.githubusercontent.com/3075542/217368283-b3cce887-a23c-45b3-a904-a4bc8367ef64.png)
+![Captura de Tela 2023-02-10 às 15 55 06](https://user-images.githubusercontent.com/3075542/218185698-eddbdb1e-847f-4273-9b66-8d57ec55eb53.png)
+
