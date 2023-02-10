@@ -6,8 +6,6 @@
 ***
 
 ### Tela cadastro de projetos
-![Captura de Tela 2023-02-10 às 15 53 45](https://user-images.githubusercontent.com/3075542/218185514-f527e982-3118-4ea1-a1fe-515445e3cbb1.png)
-
 ![Captura de Tela 2023-02-10 às 16 58 18](https://user-images.githubusercontent.com/3075542/218186255-9893c807-e981-4351-a210-8d2740c0796a.png)
 
 ***
