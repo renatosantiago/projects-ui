@@ -61,7 +61,7 @@ const PessoaForm = () => {
                 control={control}
                 name="nome"
                 rules={{ required: true }}
-                render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome" />}
+                render={({ field }) => <input {...field} type="text" className="form-control" placeholder="Nome" autocomplete="off"/>}
               />
               {formState.errors.nome && (
                 <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -73,7 +73,7 @@ const PessoaForm = () => {
                 control={control}
                 name="cpf"
                 rules={{ required: true }}
-                render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="CPF" />}
+                render={({ field }) => <input {...field} type="text" maxLength={14} className="form-control" placeholder="CPF" autocomplete="off"/>}
               />
               {formState.errors.cpf && (
                 <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -98,10 +98,8 @@ const PessoaForm = () => {
                       className="form-control"
                       locale={ptBR}
                       placeholderText="Data Nascimento"
+                      autocomplete="off"
                     />
-                    {errors.dataNascimento && (
-                      <div className="invalid-feedback d-block">Campo obrigatório</div>
-                    )}
                   </>
                 )}
               />

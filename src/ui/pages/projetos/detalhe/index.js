@@ -3,8 +3,11 @@ import { requestBackend } from "../../../../util/requests";
 import PropTypes from 'prop-types';
 import { toast } from "react-toastify";
 import "./style.css";
+import { useEffect, useState } from "react";
 
 const ProjetoCard = ({ projeto, onDelete }) => {
+
+  const [risco, setRisco] = useState('bg-primary');
 
   const handleDelete = (idProjeto) => {
 
@@ -25,22 +28,25 @@ const ProjetoCard = ({ projeto, onDelete }) => {
     });;
   };
 
+  useEffect(() => {
+    if (projeto.riscoProjeto === 'Médio') setRisco('bg-warning');
+    if (projeto.riscoProjeto === 'Alto') setRisco('bg-danger');
+  }, [projeto.riscoProjeto])
+
   return (
-
-
     <div className="col-3 mr-1">
-      <div className="card mt-3 me-3">
+      <div className="card mt-3 me-3 h-100">
         <div className="card-body">
           <h5 className="card-title">{projeto.nome}</h5>
           <div className="projeto-card-container">
             <h6 className="card-subtitle mb-2 text-muted">{projeto.statusProjeto}</h6>
-            <span className="badge rounded-pill text-bg-secondary card-subtitle mb-2 ms-1">{projeto.riscoProjeto}</span>
+            <span className={`badge rounded-pill ${risco} card-subtitle mb-2 ms-1`}>{projeto.riscoProjeto}</span>
           </div>
           <p className="card-text">{projeto.descricao}</p>
-          <button onClick={() => handleDelete(projeto.id)} className="btn btn-outline-danger me-1">
+          <Link to={`/projeto/editar/${projeto.id}`} className="btn btn-primary me-1" >Editar</Link>
+          <button onClick={() => handleDelete(projeto.id)} className="btn btn-outline-danger">
             Excluir
           </button>
-          <Link to={`/projeto/editar/${projeto.id}`} className="btn btn-primary" >Editar</Link>
         </div>
       </div>
 

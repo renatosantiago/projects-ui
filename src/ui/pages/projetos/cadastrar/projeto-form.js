@@ -84,10 +84,11 @@ const ProjetoForm = ({ projeto = {} }) => {
                 placeholder="Nome do projeto"
                 name="nome"
                 data-testid="nome"
+                autocomplete="off"
               />
-              <div className="invalid-feedback d-block">
-                {errors.name?.message}
-              </div>
+              {errors.nome && (
+                <div className="invalid-feedback d-block">Campo obrigatório</div>
+              )}
             </div>
             <div className="col-6 mt-3">
               <label htmlFor="gerente" data-testid="gerente">Gerente</label>
@@ -133,6 +134,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                       id="dataInicio"
                       locale={ptBR}
                       placeholderText="Data início"
+                      autoComplete="off"
                     />
                     {errors.dataInicio && (
                       <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -160,6 +162,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                       id="dataPrevisaoFim"
                       locale={ptBR}
                       placeholderText="Previsão fim"
+                      autoComplete="off"
                     />
                     {errors.dataPrevisaoFim && (
                       <div className="invalid-feedback d-block">Campo obrigatório</div>
@@ -186,6 +189,7 @@ const ProjetoForm = ({ projeto = {} }) => {
                       id="dataFim"
                       locale={ptBR}
                       placeholderText="Data fim"
+                      autoComplete="off"
                     />
                     {errors.dataFim && (
                       <div className="invalid-feedback d-block">Campo obrigatório</div>
